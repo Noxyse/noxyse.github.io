@@ -229,8 +229,19 @@
       justify-content: center;
       color: var(--rose);
       opacity: 0.65;
+      overflow: hidden;
+      flex-shrink: 0;
       transition: opacity 0.2s, transform 0.2s;
       cursor: pointer;
+    }
+
+    .avatar img {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      flex-shrink: 0;
     }
 
     .avatar:hover { opacity: 1; transform: scale(1.1); }
