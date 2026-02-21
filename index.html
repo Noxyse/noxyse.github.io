@@ -146,6 +146,40 @@
       text-transform: uppercase;
     }
 
+    .img-flip-wrap {
+      width: 100%;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      perspective: 1000px;
+    }
+    
+    .img-flip-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.7s ease;
+      border-radius: 20px;
+    }
+    
+    .img-flip-wrap.flipped .img-flip-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .img-flip-front, .img-flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      backface-visibility: hidden;
+      border: 2px solid var(--rose);
+      overflow: hidden;
+    }
+    
+    .img-flip-back {
+      transform: rotateY(180deg);
+    }
+
     .text-placeholder {
       width: 100%;
       padding: 28px 32px;
@@ -278,9 +312,20 @@
 
       <div class="divider"></div>
 
-      <!-- IMAGE PLACEHOLDER -->
+      <!-- IMAGE PLACEHOLDER 
       <div class="img-placeholder" style="border: 2px solid var(--rose); opacity:1;">
         <img src="bdset.webp" alt="Photo" style="width:100%; height:100%; object-fit:cover; border-radius:18px;" />
+      </div> -->
+      <!-- IMAGE — click to flip between two photos -->
+      <div class="img-flip-wrap" onclick="this.classList.toggle('flipped')">
+        <div class="img-flip-inner">
+          <div class="img-flip-front">
+            <img src="bdset.webp" alt="Photo" style="width:100%; height:100%; object-fit:cover; border-radius:18px;" />
+          </div>
+          <div class="img-flip-back">
+            <img src="bdset2.webp" alt="Photo 2" style="width:100%; height:100%; object-fit:cover; border-radius:18px;" />
+          </div>
+        </div>
       </div>
 
       <!-- TEXT PLACEHOLDER -->
